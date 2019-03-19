@@ -18,12 +18,6 @@ Miro class >> initializeAs: aString [
 		yourself
 ]
 
-{ #category : #initialization }
-Miro >> initialize [
-	super initialize.
-
-]
-
 { #category : #rendering }
 Miro >> renderContentOn: html [
 		html render: ComponentGrid new.

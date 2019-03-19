@@ -5,7 +5,7 @@ Class {
 		'count',
 		'containerId'
 	],
-	#category : #'Miro-Core'
+	#category : #Miro
 }
 
 { #category : #accessing }
@@ -100,8 +100,12 @@ GridGraphList >> renderCounterOn: html [
 ]
 
 { #category : #rendering }
-GridGraphList >> renderObjectOn: html graph: aGraph [
+GridGraphList >> renderObjectOn: html graph: aGraphId [
 	"comment stating purpose of message"
-	
-   	html render: (MiroPlot allReportKinds detect: [ :report | report displayName = aGraph ]) new
+
+	| miroPlot |
+	miroPlot := (MiroPlot allReportKinds
+		detect: [ :report | report displayName = aGraphId ]) new.
+	miroPlot useRoassal.
+	html render: miroPlot
 ]
